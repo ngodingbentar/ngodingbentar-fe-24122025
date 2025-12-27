@@ -1,9 +1,13 @@
 const getProducts = async () => {
   const data = await import("../products/products.json");
-  console.log("data 1", data)
-  console.log("data 2", data.default)
   await new Promise((resolve) => setTimeout(resolve, 2000));
   return data.default;
 }
 
-export { getProducts }
+const getProductBySlug = async (slug: string) => {
+  const data = await import("../products/products.json");
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return data.default.find((product) => product.slug === slug);
+}
+
+export { getProducts, getProductBySlug }

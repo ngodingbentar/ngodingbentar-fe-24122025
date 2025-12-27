@@ -3,7 +3,6 @@
 import ProductItem from "./ProductItem"
 
 const Lists = ({ data }: { data: any }) => {
-  console.log(data)
   return (
     <div className="p-4">
       <h1>Lists Products</h1>
