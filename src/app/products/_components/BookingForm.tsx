@@ -60,9 +60,25 @@ const BookingForm = ({ product }: BookingFormProps) => {
 
   const packageItems = product.default_package?.components || []
 
+  const addDays = (dateStr: string, days: number) => {
+    const date = new Date(dateStr)
+    date.setDate(date.getDate() + days)
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const day = String(date.getDate()).padStart(2, '0')
+    const hours = String(date.getHours()).padStart(2, '0')
+    const minutes = String(date.getMinutes()).padStart(2, '0')
+    return `${year}-${month}-${day}T${hours}:${minutes}`
+  }
+
+  const handleDurationChange = (newDuration: number) => {
+    if (newDuration < 0) return
+    const newReturnDate = addDays(pickupDate, newDuration)
+    setReturnDate(newReturnDate)
+  }
+
   return (
     <div className="bg-white p-6 pt-2 font-sans text-gray-700">
-      {/* Top Row: Inputs */}
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         <div className="flex-1">
           <label className="block text-xs font-bold text-red-500 mb-1">Pickup <span className="text-red-500">*</span></label>
@@ -116,10 +132,16 @@ const BookingForm = ({ product }: BookingFormProps) => {
           <label className="block text-xs font-bold text-red-500 mb-1">Day Count <span className="text-red-500">*</span></label>
           <div className="border rounded px-3 py-2 bg-white text-sm">
             <div className="flex justify-between items-center h-[22px]">
-              <span>{duration}</span>
-              <div className="flex flex-col text-[8px] text-gray-400 leading-none gap-0.5">
-                <span>▲</span>
-                <span>▼</span>
+              <input
+                type="number"
+                min="0"
+                value={duration}
+                onChange={(e) => handleDurationChange(parseInt(e.target.value) || 0)}
+                className="w-full outline-none text-gray-700 font-medium no-spinner"
+              />
+              <div className="flex flex-col text-[8px] text-gray-400 leading-none gap-0.5 cursor-pointer select-none">
+                <span onClick={() => handleDurationChange(duration + 1)} className="hover:text-gray-600">▲</span>
+                <span onClick={() => handleDurationChange(duration - 1)} className="hover:text-gray-600">▼</span>
               </div>
             </div>
           </div>

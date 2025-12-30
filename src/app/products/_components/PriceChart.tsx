@@ -33,10 +33,9 @@ const PriceChart = ({ price, isOpen, onClose, productName }: PriceChartProps) =>
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={onClose}>
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-lg overflow-hidden" onClick={e => e.stopPropagation()}>
-        <div className="p-4 border-b flex justify-between items-start">
-          <h3 className="font-bold text-gray-800 text-sm">Price chart - {productName}</h3>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">&times;</button>
+      <div className="p-6 bg-white rounded-lg shadow-xl w-full max-w-175 overflow-hidden" onClick={e => e.stopPropagation()}>
+        <div className="pb-4 border-b flex justify-between items-start">
+          <h3 className="font-bold text-gray-800 text-sm line-clamp-1">Price chart - {productName}</h3>
         </div>
 
         <div className="p-0">
@@ -58,9 +57,6 @@ const PriceChart = ({ price, isOpen, onClose, productName }: PriceChartProps) =>
               ))}
             </tbody>
           </table>
-        </div>
-        <div className="p-4 bg-gray-50 text-right">
-          <button onClick={onClose} className="text-sm text-blue-600 hover:underline">Close</button>
         </div>
       </div>
     </div>
