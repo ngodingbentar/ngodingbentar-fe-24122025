@@ -1,6 +1,6 @@
 import { getProductBySlug } from "@/app/services";
 import { notFound } from "next/navigation";
-import BookingForm from "../products/_components/BookingForm";
+import BookingForm from "../product/_components/BookingForm";
 import Link from "next/link";
 
 interface PageProps {
@@ -14,7 +14,7 @@ const BookPage = async ({ searchParams }: PageProps) => {
     return (
       <div className="container mx-auto p-8 text-center bg-gray-50 min-h-screen flex items-center justify-center flex-col">
         <p className="text-gray-600 mb-4">No product specified.</p>
-        <Link href="/" className="text-blue-600 hover:underline">Return to Home</Link>
+        <Link href="/" className="text-blue-600 hover:underline">Back to Home</Link>
       </div>
     );
   }
@@ -34,7 +34,7 @@ const BookPage = async ({ searchParams }: PageProps) => {
         </div>
 
         <div className="text-center text-gray-400 text-xs">
-          &copy; 2025 Pondok Lensa. All rights reserved.
+          &copy; 2025 Ngodingbentar. All rights reserved.
         </div>
       </div>
     </div>

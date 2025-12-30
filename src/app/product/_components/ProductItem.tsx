@@ -6,7 +6,7 @@ import Link from "next/link"
 
 const ProductItem = ({ product }: { product: any }) => {
   return (
-    <Link href={`/products/${product.slug}`} className="flex flex-col items-center p-2 cursor-pointer hover:shadow-lg rounded-md transition-all">
+    <Link href={`/product/${product.slug}`} className="flex flex-col items-center p-2 cursor-pointer hover:shadow-lg rounded-md transition-all">
       <Image
         src={`/product-images/${product?.images[0]?.image}`}
         alt={product.name}

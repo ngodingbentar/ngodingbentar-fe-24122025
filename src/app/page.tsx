@@ -1,4 +1,4 @@
-import Lists from "./products/_components/Lists";
+import Lists from "./product/_components/Lists";
 import { getProducts } from "./services";
 
 interface PageProps {

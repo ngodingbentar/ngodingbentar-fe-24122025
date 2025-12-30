@@ -38,25 +38,21 @@ const PriceChart = ({ price, isOpen, onClose, productName }: PriceChartProps) =>
           <h3 className="font-bold text-gray-800 text-sm line-clamp-1">Price chart - {productName}</h3>
         </div>
 
-        <div className="p-0">
-          <table className="w-full text-sm">
-            <thead className="bg-[#5C6B89] text-white">
-              <tr>
-                <th className="py-3 px-4 text-left font-medium">Days</th>
-                <th className="py-3 px-4 text-left font-medium">Rental Price</th>
-                <th className="py-3 px-4 text-left font-medium">Price per day</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, idx) => (
-                <tr key={row.days} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                  <td className="py-2 px-4 border-b border-gray-100">{row.days}</td>
-                  <td className="py-2 px-4 border-b border-gray-100">Rp {formatNumber(Math.round(row.total))}</td>
-                  <td className="py-2 px-4 border-b border-gray-100">Rp {formatNumber(Math.round(row.pricePerDay))}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="w-full text-sm">
+          <div className="grid grid-cols-3 bg-[#5C6B89] text-white">
+            <div className="py-3 px-4 text-left font-medium">Days</div>
+            <div className="py-3 px-4 text-left font-medium">Rental Price</div>
+            <div className="py-3 px-4 text-left font-medium">Price per day</div>
+          </div>
+          <div>
+            {rows.map((row, idx) => (
+              <div key={row.days} className={`grid grid-cols-3 ${idx % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+                <div className="py-2 px-4 border-b border-gray-100">{row.days}</div>
+                <div className="py-2 px-4 border-b border-gray-100">Rp {formatNumber(Math.round(row.total))}</div>
+                <div className="py-2 px-4 border-b border-gray-100">Rp {formatNumber(Math.round(row.pricePerDay))}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

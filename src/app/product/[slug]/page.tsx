@@ -1,6 +1,6 @@
 import { getProductBySlug } from "@/app/services";
 import { notFound } from "next/navigation";
-import ProductClientPage from "../_components/ProductClientPage";
+import ProductDetailClient from "../_components/ProductDetailClient";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -14,7 +14,7 @@ const ProductDetailPage = async ({ params }: PageProps) => {
     notFound();
   }
 
-  return <ProductClientPage product={product} />;
+  return <ProductDetailClient product={product} />;
 };
 
 export default ProductDetailPage;

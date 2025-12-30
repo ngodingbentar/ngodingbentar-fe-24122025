@@ -1,5 +1,5 @@
 const getProducts = async (query?: string) => {
-  const data = await import("../products/products.json");
+  const data = await import("../product/products.json");
   await new Promise((resolve) => setTimeout(resolve, 2000));
   if (query) {
     return data.default.filter((product) =>
@@ -10,7 +10,8 @@ const getProducts = async (query?: string) => {
 }
 
 const getProductBySlug = async (slug: string) => {
-  const data = await import("../products/products.json");
+  console.log(slug)
+  const data = await import("../product/products.json");
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return data.default.find((product) => product.slug === slug);
 }

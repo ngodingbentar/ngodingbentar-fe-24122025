@@ -3,6 +3,8 @@
 import { useState, useMemo } from "react"
 import { formatNumber } from "@/app/utils"
 import Image from "next/image"
+import PriceChartButton from "./PriceChartButton"
+import PriceChart from "./PriceChart"
 
 interface BookingFormProps {
   product: any
@@ -13,6 +15,7 @@ const BookingForm = ({ product }: BookingFormProps) => {
   const [returnDate, setReturnDate] = useState("2025-12-28T09:00")
   const [pickupLoc, setPickupLoc] = useState("Jakarta")
   const [returnLoc, setReturnLoc] = useState("Jakarta")
+  const [showPriceChart, setShowPriceChart] = useState(false)
 
   const price = product.price
 
@@ -135,20 +138,16 @@ const BookingForm = ({ product }: BookingFormProps) => {
               <input
                 type="number"
                 min="0"
-                value={duration}
+                value={duration || ""}
+                placeholder="0"
                 onChange={(e) => handleDurationChange(parseInt(e.target.value) || 0)}
                 className="w-full outline-none text-gray-700 font-medium no-spinner"
               />
-              <div className="flex flex-col text-[8px] text-gray-400 leading-none gap-0.5 cursor-pointer select-none">
-                <span onClick={() => handleDurationChange(duration + 1)} className="hover:text-gray-600">▲</span>
-                <span onClick={() => handleDurationChange(duration - 1)} className="hover:text-gray-600">▼</span>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Middle Row: Product Card */}
       <div className="border rounded-lg p-6 flex flex-col md:flex-row gap-8 items-start mb-8 bg-white shadow-sm">
         <div className="w-full md:w-1/3 flex justify-center">
           <div className="relative w-64 h-48">
@@ -175,9 +174,7 @@ const BookingForm = ({ product }: BookingFormProps) => {
             <div className="text-[#B8860B] font-bold text-sm">
               Rp {formatNumber(product.price * 2)} <span className="text-gray-400 font-normal">/ 3 days</span>
             </div>
-            <button className="text-[#B8860B] text-xs font-bold flex items-center gap-1">
-              Price Chart <span className="text-[10px]">☰</span>
-            </button>
+            <PriceChartButton onClick={() => setShowPriceChart(true)} />
           </div>
 
           <div className="flex items-center gap-2 mb-1">
@@ -187,9 +184,7 @@ const BookingForm = ({ product }: BookingFormProps) => {
         </div>
       </div>
 
-      {/* Bottom Row: Package & Pricing */}
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Left: Package */}
         <div className="flex-1">
           <h3 className="text-[#B8860B] font-bold text-sm mb-4">Package</h3>
           <div className="flex gap-6 overflow-x-auto pb-2">
@@ -212,7 +207,6 @@ const BookingForm = ({ product }: BookingFormProps) => {
           </div>
         </div>
 
-        {/* Right: Breakdown */}
         <div className="w-full md:w-80">
           <div className="space-y-1 text-sm text-right mb-6">
             <div className="flex justify-between text-gray-500">
@@ -248,6 +242,12 @@ const BookingForm = ({ product }: BookingFormProps) => {
           </button>
         </div>
       </div>
+      <PriceChart
+        isOpen={showPriceChart}
+        onClose={() => setShowPriceChart(false)}
+        price={product.price}
+        productName={product.name}
+      />
     </div>
   )
 }
