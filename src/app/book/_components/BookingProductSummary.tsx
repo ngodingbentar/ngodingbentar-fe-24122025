@@ -6,9 +6,24 @@ import { FaInfoCircle } from "react-icons/fa"
 interface BookingProductSummaryProps {
   product: any
   setShowPriceChart: (show: boolean) => void
+  selectedCity: string
 }
 
-const BookingProductSummary = ({ product, setShowPriceChart }: BookingProductSummaryProps) => {
+const BookingProductSummary = ({ product, setShowPriceChart, selectedCity }: BookingProductSummaryProps) => {
+  const availability = product.availability?.find((item: any) => item.city === selectedCity)
+  const status = availability?.status || "unavailable"
+
+  let statusColor = "bg-red-500"
+  let statusText = "Tidak Tersedia"
+
+  if (status === "available") {
+    statusColor = "bg-green-500"
+    statusText = "Tersedia"
+  } else if (status === "request") {
+    statusColor = "bg-yellow-400"
+    statusText = "Tersedia berdasarkan pesanan"
+  }
+
   return (
     <div className="border rounded-lg p-6 flex flex-col md:flex-row gap-8 items-start mb-8 bg-white shadow-sm">
       <div className="w-full md:w-1/3 flex justify-center">
@@ -42,8 +57,8 @@ const BookingProductSummary = ({ product, setShowPriceChart }: BookingProductSum
         </div>
 
         <div className="flex items-center gap-2 mb-1">
-          <span className="w-3 h-3 rounded-full bg-green-500"></span>
-          <span className="font-bold text-gray-700 text-sm">Available</span>
+          <span className={`w-3 h-3 rounded-full ${statusColor}`}></span>
+          <span className="font-bold text-gray-700 text-sm">{statusText}</span>
         </div>
       </div>
     </div>

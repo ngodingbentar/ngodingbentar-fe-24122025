@@ -85,6 +85,11 @@ const BookingForm = ({ product }: BookingFormProps) => {
     setReturnDate(newReturnDate)
   }
 
+  const isUnavailable = useMemo(() => {
+    const avail = product.availability?.find((item: any) => item.city === pickupLoc)
+    return avail?.status === "unavailable"
+  }, [product.availability, pickupLoc])
+
   return (
     <div className="bg-white p-6 pt-2 font-sans text-gray-700">
       <DateTimeLocationPicker
@@ -103,6 +108,7 @@ const BookingForm = ({ product }: BookingFormProps) => {
       <BookingProductSummary
         product={product}
         setShowPriceChart={setShowPriceChart}
+        selectedCity={pickupLoc}
       />
 
       <div className="flex flex-col md:flex-row gap-8">
@@ -117,6 +123,7 @@ const BookingForm = ({ product }: BookingFormProps) => {
           discountAmount={discountAmount}
           total={total}
           onBook={handleBook}
+          isDisabled={isUnavailable}
         />
       </div>
 
