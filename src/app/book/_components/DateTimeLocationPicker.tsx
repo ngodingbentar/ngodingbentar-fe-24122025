@@ -28,7 +28,7 @@ const DateTimeLocationPicker = ({
   return (
     <div className="flex flex-col md:flex-row gap-4 mb-8">
       <div className="flex-1">
-        <label className="block text-xs font-bold text-red-500 mb-1">Pickup <span className="text-red-500">*</span></label>
+        <label className="block text-xs font-bold mb-1">Pickup <span className="text-red-500">*</span></label>
         <div className="flex border rounded overflow-hidden">
           <input
             type="datetime-local"
@@ -43,6 +43,8 @@ const DateTimeLocationPicker = ({
               onChange={e => setPickupLoc(e.target.value)}
               className="w-full h-full px-3 py-2 text-sm appearance-none outline-none bg-white text-gray-600 cursor-pointer"
             >
+              <option>Bandung</option>
+              <option>Bali</option>
               <option>Jakarta</option>
               <option>Surabaya</option>
             </select>
@@ -54,7 +56,7 @@ const DateTimeLocationPicker = ({
       </div>
 
       <div className="flex-1">
-        <label className="block text-xs font-bold text-red-500 mb-1">Return <span className="text-red-500">*</span></label>
+        <label className="block text-xs font-bold mb-1">Return <span className="text-red-500">*</span></label>
         <div className="flex border rounded overflow-hidden">
           <input
             type="datetime-local"
@@ -69,6 +71,8 @@ const DateTimeLocationPicker = ({
               onChange={e => setReturnLoc(e.target.value)}
               className="w-full h-full px-3 py-2 text-sm appearance-none outline-none bg-white text-gray-600 cursor-pointer"
             >
+              <option>Bandung</option>
+              <option>Bali</option>
               <option>Jakarta</option>
               <option>Surabaya</option>
             </select>
@@ -80,7 +84,7 @@ const DateTimeLocationPicker = ({
       </div>
 
       <div className="w-full md:w-32">
-        <label className="block text-xs font-bold text-red-500 mb-1">Day Count <span className="text-red-500">*</span></label>
+        <label className="block text-xs font-bold mb-1">Day Count <span className="text-red-500">*</span></label>
         <div className="border rounded px-3 py-2 bg-white text-sm">
           <div className="flex justify-between items-center h-[22px]">
             <input

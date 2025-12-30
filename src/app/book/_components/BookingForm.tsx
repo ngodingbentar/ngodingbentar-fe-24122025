@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react"
 import { formatNumber } from "@/app/utils"
+import { toast } from "react-toastify"
 import PriceChart from "../../product/_components/PriceChart"
 import DateTimeLocationPicker from "./DateTimeLocationPicker"
 import BookingProductSummary from "./BookingProductSummary"
@@ -59,8 +60,10 @@ const BookingForm = ({ product }: BookingFormProps) => {
     }
   }, [duration, price])
 
+
+
   const handleBook = () => {
-    alert(`Booking Confirmed!\nProduct: ${product.name}\nTotal: Rp ${formatNumber(total)}`)
+    toast.success(`Pesan berhasil !\nProduct: ${product.name}\nTotal: Rp ${formatNumber(total)}`)
   }
 
   const packageItems = product.default_package?.components || []

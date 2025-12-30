@@ -65,21 +65,38 @@ const ProductInfo = ({ product, onOpenPriceChart }: ProductInfoProps) => {
         </div>
 
         {showAvailTooltip && (
-          <div className="absolute top-6 left-10 bg-white shadow-lg border p-3 rounded-md z-10 text-xs w-48">
+          <div className="absolute top-6 left-10 bg-white shadow-lg border p-3 rounded-md z-10 text-xs w-64">
             <div className="font-bold mb-2">Availability info</div>
-            <div className="flex items-center gap-2 mb-1"><span className="w-2 h-2 rounded-full bg-green-500"></span> Available</div>
-            <div className="flex items-center gap-2 mb-1"><span className="w-2 h-2 rounded-full bg-yellow-400"></span> Available by request</div>
-            <div className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-red-500"></span> Unavailable</div>
+            <div className="flex items-center gap-2 mb-1"><span className="w-2 h-2 rounded-full bg-green-500"></span> Tersedia</div>
+            <div className="flex items-center gap-2 mb-1"><span className="w-2 h-2 rounded-full bg-yellow-400"></span> Tersedia berdasarkan pesanan</div>
+            <div className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-red-500"></span> Tidak Tersedia</div>
           </div>
         )}
 
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <span className="w-2 h-2 rounded-full bg-green-500"></span> Jakarta
-          </div>
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <span className="w-2 h-2 rounded-full bg-green-500"></span> Surabaya
-          </div>
+          {product.availability ? (
+            product.availability.map((item: any) => {
+              let color = "bg-gray-300"
+              if (item.status === "available") color = "bg-green-500"
+              else if (item.status === "request") color = "bg-yellow-400"
+              else if (item.status === "unavailable") color = "bg-red-500"
+
+              return (
+                <div key={item.city} className="flex items-center gap-2 text-sm text-gray-600">
+                  <span className={`w-2 h-2 rounded-full ${color}`}></span> {item.city}
+                </div>
+              )
+            })
+          ) : (
+            <>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <span className="w-2 h-2 rounded-full bg-green-500"></span> Jakarta
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <span className="w-2 h-2 rounded-full bg-green-500"></span> Surabaya
+              </div>
+            </>
+          )}
         </div>
       </div>
 

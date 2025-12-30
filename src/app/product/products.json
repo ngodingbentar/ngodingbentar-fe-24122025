@@ -169,7 +169,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "available"
+            },
+            {
+                "city": "Surabaya",
+                "status": "request"
+            }
+        ]
     },
     {
         "id": "201809200019356880175",
@@ -400,7 +418,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "available"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "unavailable"
+            }
+        ]
     },
     {
         "id": "201708241414580610110",
@@ -631,7 +667,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "available"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "available"
+            }
+        ]
     },
     {
         "id": "201709221957471820226",
@@ -870,7 +924,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "request"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "unavailable"
+            },
+            {
+                "city": "Surabaya",
+                "status": "request"
+            }
+        ]
     },
     {
         "id": "201711182022177670128",
@@ -1128,7 +1200,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "available"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "available"
+            },
+            {
+                "city": "Surabaya",
+                "status": "request"
+            }
+        ]
     },
     {
         "id": "201803142039575950165",
@@ -1382,7 +1472,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "request"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "request"
+            }
+        ]
     },
     {
         "id": "201706161845519750176",
@@ -1613,7 +1721,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "unavailable"
+            },
+            {
+                "city": "Surabaya",
+                "status": "unavailable"
+            }
+        ]
     },
     {
         "id": "201708071611119820128",
@@ -1844,7 +1970,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "request"
+            },
+            {
+                "city": "Jakarta",
+                "status": "unavailable"
+            },
+            {
+                "city": "Surabaya",
+                "status": "request"
+            }
+        ]
     },
     {
         "id": "201807121839184540162",
@@ -2059,7 +2203,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "available"
+            }
+        ]
     },
     {
         "id": "201903291651305400270",
@@ -2317,7 +2479,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "available"
+            },
+            {
+                "city": "Bali",
+                "status": "unavailable"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "unavailable"
+            }
+        ]
     },
     {
         "id": "202208031233545100238",
@@ -2642,7 +2822,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "request"
+            },
+            {
+                "city": "Jakarta",
+                "status": "available"
+            },
+            {
+                "city": "Surabaya",
+                "status": "unavailable"
+            }
+        ]
     },
     {
         "id": "201706010206241540163",
@@ -2881,7 +3079,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "request"
+            },
+            {
+                "city": "Jakarta",
+                "status": "available"
+            },
+            {
+                "city": "Surabaya",
+                "status": "request"
+            }
+        ]
     },
     {
         "id": "201708231500260320149",
@@ -3120,7 +3336,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "unavailable"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "available"
+            }
+        ]
     },
     {
         "id": "201706010206418410124",
@@ -3343,7 +3577,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "request"
+            },
+            {
+                "city": "Bali",
+                "status": "request"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "request"
+            }
+        ]
     },
     {
         "id": "201706010206255910117",
@@ -3616,7 +3868,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "request"
+            },
+            {
+                "city": "Jakarta",
+                "status": "available"
+            },
+            {
+                "city": "Surabaya",
+                "status": "unavailable"
+            }
+        ]
     },
     {
         "id": "202206211646138120235",
@@ -3867,7 +4137,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "request"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "available"
+            }
+        ]
     },
     {
         "id": "201706010206257320135",
@@ -4098,7 +4386,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "unavailable"
+            },
+            {
+                "city": "Jakarta",
+                "status": "unavailable"
+            },
+            {
+                "city": "Surabaya",
+                "status": "available"
+            }
+        ]
     },
     {
         "id": "201904142353363610341",
@@ -4192,7 +4498,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "request"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "unavailable"
+            },
+            {
+                "city": "Surabaya",
+                "status": "unavailable"
+            }
+        ]
     },
     {
         "id": "201706071901378320220",
@@ -4448,7 +4772,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "unavailable"
+            },
+            {
+                "city": "Bali",
+                "status": "request"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "available"
+            }
+        ]
     },
     {
         "id": "201706010206274190186",
@@ -4737,7 +5079,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "available"
+            },
+            {
+                "city": "Bali",
+                "status": "available"
+            },
+            {
+                "city": "Jakarta",
+                "status": "available"
+            },
+            {
+                "city": "Surabaya",
+                "status": "unavailable"
+            }
+        ]
     },
     {
         "id": "201910202253146430165",
@@ -5081,7 +5441,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "request"
+            },
+            {
+                "city": "Bali",
+                "status": "request"
+            },
+            {
+                "city": "Jakarta",
+                "status": "unavailable"
+            },
+            {
+                "city": "Surabaya",
+                "status": "request"
+            }
+        ]
     },
     {
         "id": "202212310848315590137",
@@ -5320,7 +5698,25 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "request"
+            },
+            {
+                "city": "Bali",
+                "status": "unavailable"
+            },
+            {
+                "city": "Jakarta",
+                "status": "available"
+            },
+            {
+                "city": "Surabaya",
+                "status": "request"
+            }
+        ]
     },
     {
         "id": "01jz9v31gy7w4rswegw716z8z5",
@@ -5446,6 +5842,24 @@
                     }
                 }
             ]
-        }
+        },
+        "availability": [
+            {
+                "city": "Bandung",
+                "status": "request"
+            },
+            {
+                "city": "Bali",
+                "status": "unavailable"
+            },
+            {
+                "city": "Jakarta",
+                "status": "request"
+            },
+            {
+                "city": "Surabaya",
+                "status": "available"
+            }
+        ]
     }
 ]
