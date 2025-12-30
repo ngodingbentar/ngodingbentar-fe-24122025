@@ -4,6 +4,7 @@ import { useState } from "react"
 import { formatNumber } from "@/app/utils"
 import Link from "next/link"
 import PriceChartButton from "./PriceChartButton"
+import { FaInfoCircle } from "react-icons/fa"
 
 interface ProductInfoProps {
   product: any
@@ -30,11 +31,11 @@ const ProductInfo = ({ product, onOpenPriceChart }: ProductInfoProps) => {
               <span className="font-bold text-gray-800 text-lg">Rp {formatNumber(product.price)}</span>
               <span className="text-gray-500 text-sm">/ day</span>
               <span
-                className="text-gray-400 text-xs cursor-help border border-gray-400 rounded-full w-3 h-3 flex items-center justify-center ml-1"
+                className="text-gray-400 text-xs cursor-help ml-1"
                 onMouseEnter={() => setShowPriceTooltip(true)}
                 onMouseLeave={() => setShowPriceTooltip(false)}
               >
-                i
+                <FaInfoCircle />
               </span>
               {showPriceTooltip && (
                 <div className="absolute top-0 left-[180px] w-48 bg-white border shadow-md p-3 rounded z-20 text-xs text-gray-500">
@@ -57,8 +58,10 @@ const ProductInfo = ({ product, onOpenPriceChart }: ProductInfoProps) => {
           <span
             onMouseEnter={() => setShowAvailTooltip(true)}
             onMouseLeave={() => setShowAvailTooltip(false)}
-            className="text-gray-400 text-xs cursor-help border border-gray-400 rounded-full w-3 h-3 flex items-center justify-center"
-          >i</span>
+            className="text-gray-400 text-xs cursor-help"
+          >
+            <FaInfoCircle />
+          </span>
         </div>
 
         {showAvailTooltip && (
@@ -93,7 +96,7 @@ const ProductInfo = ({ product, onOpenPriceChart }: ProductInfoProps) => {
       </div>
 
       <div className="flex items-start gap-2 text-[10px] text-gray-500 bg-gray-100 p-2 rounded">
-        <span className="mt-0.5">ⓘ</span>
+        <FaInfoCircle className="mt-0.5 shrink-0" />
         <p>Place the item in the project to view the estimated rental cost and confirm the booking to our Online Customer Service.</p>
       </div>
     </>

@@ -35,7 +35,7 @@ const PriceChart = ({ price, isOpen, onClose, productName }: PriceChartProps) =>
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={onClose}>
       <div className="p-6 bg-white rounded-lg shadow-xl w-full max-w-175 overflow-hidden" onClick={e => e.stopPropagation()}>
         <div className="pb-4 border-b flex justify-between items-start">
-          <h3 className="font-bold text-gray-800 text-sm line-clamp-1">Price chart - {productName}</h3>
+          <h3 className="font-bold text-gray-800 line-clamp-1">Price chart - {productName}</h3>
         </div>
 
         <div className="w-full text-sm">

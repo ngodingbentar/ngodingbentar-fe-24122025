@@ -1,6 +1,6 @@
 import { getProductBySlug } from "@/app/services";
 import { notFound } from "next/navigation";
-import BookingForm from "../product/_components/BookingForm";
+import BookingForm from "./_components/BookingForm";
 import Link from "next/link";
 
 interface PageProps {
