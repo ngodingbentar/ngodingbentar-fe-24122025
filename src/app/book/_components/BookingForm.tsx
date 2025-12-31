@@ -6,9 +6,9 @@ import { useBookingStore } from "@/store/useBookingStore"
 import { toast } from "react-hot-toast"
 import DateTimeLocationPicker from "./DateTimeLocationPicker"
 import BookingProductSummary from "./BookingProductSummary"
-import BookingPackageList from "./BookingPackageList"
 import BookingOrderSummary from "./BookingOrderSummary"
 import PriceChart from "@/app/_components/PriceChart"
+import BookingPackageList from "@/app/_components/BookingPackageList"
 
 interface BookingFormProps {
   product: any
@@ -28,8 +28,8 @@ const BookingForm = ({ product }: BookingFormProps) => {
   const packageItems = useMemo(() => product.default_package?.components || [], [product])
   const duration = useMemo(() => calculateDays(pickupDate, returnDate), [pickupDate, returnDate])
   const isUnavailable = useMemo(() => {
-    const avail = product.availability?.find((item: any) => item.city === pickupLoc)
-    return avail?.status === "unavailable"
+    const avail = product.availability?.find((item: any) => item.city.toLowerCase() === pickupLoc.toLowerCase())
+    return avail?.status.toLowerCase() === "unavailable"
   }, [product.availability, pickupLoc])
 
   const { total, subtotal, discountAmount, discountPercent, freeDays } = useMemo(() => {

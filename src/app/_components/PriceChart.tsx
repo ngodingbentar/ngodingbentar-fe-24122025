@@ -25,7 +25,6 @@ const PriceChart = ({ price, isOpen, onClose, productName }: PriceChartProps) =>
   const daysToCheck = [1, 3, 7, 10, 12, 15]
 
   const calculateRow = (days: number, index: number) => {
-    console.log(index)
     const freeDays = Math.floor(days / 3)
     const billableDays = days - freeDays
     let subtotal = billableDays * price

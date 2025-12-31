@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import ProductImageGallery from "./ProductImageGallery"
-import ProductPackages from "./ProductPackages"
 import ProductInfo from "./ProductInfo"
 import PriceChart from "@/app/_components/PriceChart"
+import BookingPackageList from "@/app/_components/BookingPackageList"
 
 interface ProductDetailPageProps {
   product: any
@@ -20,7 +20,7 @@ const ProductDetailClient = ({ product }: ProductDetailPageProps) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-7">
           <ProductImageGallery images={product.images} productName={product.name} />
-          <ProductPackages packageItems={packageItems} />
+          <BookingPackageList packageItems={packageItems} />
         </div>
 
         <div className="lg:col-span-5">

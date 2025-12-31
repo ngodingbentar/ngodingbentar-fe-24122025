@@ -28,6 +28,7 @@ export const useBookingStore = create<BookingState>((set, get) => ({
     const { pickupDate } = get();
     if (duration < 0) return;
     const newReturnDate = addDays(pickupDate, duration);
+    console.log(newReturnDate);
     set({ returnDate: newReturnDate });
   },
 }));

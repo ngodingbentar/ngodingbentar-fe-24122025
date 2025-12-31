@@ -8,7 +8,7 @@ interface BookingPackageListProps {
 const BookingPackageList = ({ packageItems }: BookingPackageListProps) => {
   return (
     <div className="flex-1">
-      <h3 className="text-[#B8860B] font-bold text-sm mb-4">Package</h3>
+      <h3 className="text-[#c99947] font-bold text-sm mb-4">Package</h3>
       <div className="flex gap-6 overflow-x-auto pb-2">
         {packageItems.length > 0 ? packageItems.map((item: any) => (
           <div key={item.id} className="text-center w-24">

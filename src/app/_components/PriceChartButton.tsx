@@ -9,7 +9,7 @@ const PriceChartButton = ({ onClick, className = "" }: PriceChartButtonProps) =>
   return (
     <button
       onClick={onClick}
-      className={`text-[#D4AF37] font-bold flex items-center gap-1 hover:underline ${className}`}
+      className={`text-[#c99947] font-bold flex items-center cursor-pointer gap-1 ${className}`}
     >
       Price Chart <FaList className="text-sm" />
     </button>

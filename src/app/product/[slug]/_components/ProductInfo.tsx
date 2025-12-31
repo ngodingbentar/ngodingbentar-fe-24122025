@@ -104,13 +104,13 @@ const ProductInfo = ({ product, onOpenPriceChart }: ProductInfoProps) => {
       </div>
 
       <div className="flex gap-3 mb-2">
-        <button className="flex w-1/2 justify-center items-center gap-2 bg-[#B8860B] hover:bg-[#9DA520] text-white font-bold py-3 px-4 rounded transition-colors text-sm">
+        <button className="flex w-1/2 justify-center items-center gap-2 bg-[#c99947] hover:bg-[#929c10] text-white font-bold py-3 px-4 rounded transition-colors text-sm">
           <span>Add to Project</span>
           <span><MdOutlineDashboard /></span>
         </button>
         <Link
           href={`/book?slug=${product.slug}`}
-          className="flex w-1/2 bg-white border border-[#B8860B] text-[#B8860B] hover:bg-orange-50 font-bold py-3 px-4 rounded transition-colors text-sm text-center flex items-center justify-center"
+          className="flex w-1/2 bg-white border border-[#c99947] text-[#c99947] hover:bg-orange-50 font-bold py-3 px-4 rounded transition-colors text-sm text-center flex items-center justify-center"
         >
           Book Now
         </Link>

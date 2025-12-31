@@ -39,7 +39,7 @@ const SearchBar = () => {
       />
       <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
         {isPending && (
-          <AiOutlineLoading className="animate-spin h-4 w-4 text-[#B8860B]" />
+          <AiOutlineLoading className="animate-spin h-4 w-4 text-[#c99947]" />
         )}
         <button className="text-gray-400">
           <GoSearch size={18} />
