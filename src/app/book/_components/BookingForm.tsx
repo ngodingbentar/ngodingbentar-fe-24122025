@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react"
 import { addDays, calculateDays, formatNumber } from "@/app/utils"
+import { useBookingStore } from "@/store/useBookingStore"
 import { toast } from "react-hot-toast"
 import DateTimeLocationPicker from "./DateTimeLocationPicker"
 import BookingProductSummary from "./BookingProductSummary"
@@ -14,10 +15,18 @@ interface BookingFormProps {
 }
 
 const BookingForm = ({ product }: BookingFormProps) => {
-  const [pickupDate, setPickupDate] = useState("2025-12-21T09:00")
-  const [returnDate, setReturnDate] = useState("2025-12-28T09:00")
-  const [pickupLoc, setPickupLoc] = useState("Jakarta")
-  const [returnLoc, setReturnLoc] = useState("Jakarta")
+  const {
+    pickupDate,
+    returnDate,
+    pickupLoc,
+    returnLoc,
+    setPickupDate,
+    setReturnDate,
+    setPickupLoc,
+    setReturnLoc,
+    setDuration
+  } = useBookingStore()
+
   const [showPriceChart, setShowPriceChart] = useState(false)
 
   const price = useMemo(() => product.price, [product])
@@ -27,6 +36,7 @@ const BookingForm = ({ product }: BookingFormProps) => {
     const avail = product.availability?.find((item: any) => item.city === pickupLoc)
     return avail?.status === "unavailable"
   }, [product.availability, pickupLoc])
+
   const { total, subtotal, discountAmount, discountPercent, freeDays } = useMemo(() => {
     if (duration <= 0) return { total: 0, subtotal: 0, discountAmount: 0, discountPercent: 0, freeDays: 0 }
 
@@ -59,8 +69,7 @@ const BookingForm = ({ product }: BookingFormProps) => {
 
   const handleDurationChange = (newDuration: number) => {
     if (newDuration < 0) return
-    const newReturnDate = addDays(pickupDate, newDuration)
-    setReturnDate(newReturnDate)
+    setDuration(newDuration)
   }
 
   return (
