@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import SearchBar from './SearchBar'
+import { Suspense } from 'react'
 
 export const Header = () => {
   return (
@@ -12,7 +13,9 @@ export const Header = () => {
           <span className="text-[10px] text-gray-500 uppercase font-medium">Photo & Video Equipment Rental</span>
         </div>
       </Link>
-      <SearchBar />
+      <Suspense fallback={<div className="w-full md:w-96 h-10 bg-gray-100 rounded-full animate-pulse" />}>
+        <SearchBar />
+      </Suspense>
     </header>
   )
 }
