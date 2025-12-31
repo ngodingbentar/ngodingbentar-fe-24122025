@@ -21,11 +21,13 @@ const ProductInfo = ({ product, onOpenPriceChart }: ProductInfoProps) => {
       <h1 className="text-xl font-bold text-gray-800 mb-1 leading-tight">
         {product.title || product.name}
       </h1>
-      <div className="text-sm text-gray-500 mb-6">
+      <div className="text-sm text-gray-500">
         Brand <span className="text-orange-400 font-medium cursor-pointer">{product.manufacturer?.name || 'Sony'}</span>
       </div>
 
-      <div className="bg-white rounded-lg p-0 mb-6">
+      <div className="w-full h-[1px] bg-gray-300 my-3" />
+
+      <div className="bg-white p-0 mb-6">
         <div className="flex justify-between items-start">
           <div>
             <div className="flex items-center gap-1 mb-1 relative">
