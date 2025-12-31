@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { addDays, calculateDays, formatNumber } from "@/app/utils"
+import { calculateDays, formatNumber } from "@/app/utils"
 import { useBookingStore } from "@/store/useBookingStore"
 import { toast } from "react-hot-toast"
 import DateTimeLocationPicker from "./DateTimeLocationPicker"
@@ -19,11 +19,6 @@ const BookingForm = ({ product }: BookingFormProps) => {
     pickupDate,
     returnDate,
     pickupLoc,
-    returnLoc,
-    setPickupDate,
-    setReturnDate,
-    setPickupLoc,
-    setReturnLoc,
     setDuration
   } = useBookingStore()
 
@@ -75,14 +70,6 @@ const BookingForm = ({ product }: BookingFormProps) => {
   return (
     <div className="bg-white p-6 pt-2 font-sans text-gray-700">
       <DateTimeLocationPicker
-        pickupDate={pickupDate}
-        setPickupDate={setPickupDate}
-        returnDate={returnDate}
-        setReturnDate={setReturnDate}
-        pickupLoc={pickupLoc}
-        setPickupLoc={setPickupLoc}
-        returnLoc={returnLoc}
-        setReturnLoc={setReturnLoc}
         duration={duration}
         handleDurationChange={handleDurationChange}
       />

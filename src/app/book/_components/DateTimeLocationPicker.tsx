@@ -1,30 +1,27 @@
+import { useBookingStore } from "@/store/useBookingStore"
 import { FaChevronDown } from "react-icons/fa"
 
 interface DateTimeLocationPickerProps {
-  pickupDate: string
-  setPickupDate: (date: string) => void
-  returnDate: string
-  setReturnDate: (date: string) => void
-  pickupLoc: string
-  setPickupLoc: (loc: string) => void
-  returnLoc: string
-  setReturnLoc: (loc: string) => void
   duration: number
   handleDurationChange: (duration: number) => void
 }
 
 const DateTimeLocationPicker = ({
-  pickupDate,
-  setPickupDate,
-  returnDate,
-  setReturnDate,
-  pickupLoc,
-  setPickupLoc,
-  returnLoc,
-  setReturnLoc,
   duration,
   handleDurationChange,
 }: DateTimeLocationPickerProps) => {
+
+  const {
+    pickupDate,
+    returnDate,
+    pickupLoc,
+    returnLoc,
+    setPickupDate,
+    setReturnDate,
+    setPickupLoc,
+    setReturnLoc
+  } = useBookingStore()
+
   return (
     <div className="flex flex-col md:flex-row gap-4 mb-8">
       <div className="flex-1">

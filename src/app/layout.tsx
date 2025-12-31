@@ -5,7 +5,7 @@ import ToastProvider from "./_components/ToastProvider";
 
 export const metadata: Metadata = {
   title: "Rental Lensa - Ngodingbentar",
-  description: "dewaqintoro@gmail.com",
+  description: "Ngodingbentar",
 };
 
 export default function RootLayout({

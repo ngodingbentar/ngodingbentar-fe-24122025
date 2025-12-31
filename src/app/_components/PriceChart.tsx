@@ -5,16 +5,27 @@ import { formatNumber } from "@/app/utils"
 interface PriceChartProps {
   price: number
   isOpen: boolean
-  onClose: () => void
   productName: string
+  onClose: () => void
 }
+
+const CellItem = ({ children }: { children: React.ReactNode }) => (
+  <div className="py-2 px-4 border-b border-gray-100">
+    {children}
+  </div>
+);
+
+const HeaderItem = ({ children }: { children: React.ReactNode }) => (
+  <div className="py-3 px-4 text-left font-medium">{children}</div>
+);
 
 const PriceChart = ({ price, isOpen, onClose, productName }: PriceChartProps) => {
   if (!isOpen) return null
 
   const daysToCheck = [1, 3, 7, 10, 12, 15]
 
-  const calculateRow = (days: number) => {
+  const calculateRow = (days: number, index: number) => {
+    console.log(index)
     const freeDays = Math.floor(days / 3)
     const billableDays = days - freeDays
     let subtotal = billableDays * price
@@ -40,19 +51,25 @@ const PriceChart = ({ price, isOpen, onClose, productName }: PriceChartProps) =>
 
         <div className="w-full text-sm">
           <div className="grid grid-cols-3 bg-[#5C6B89] text-white">
-            <div className="py-3 px-4 text-left font-medium">Days</div>
-            <div className="py-3 px-4 text-left font-medium">Rental Price</div>
-            <div className="py-3 px-4 text-left font-medium">Price per day</div>
+            <HeaderItem>Days</HeaderItem>
+            <HeaderItem>Rental Price</HeaderItem>
+            <HeaderItem>Price per day</HeaderItem>
           </div>
           <div>
             {rows.map((row, idx) => (
               <div key={row.days} className={`grid grid-cols-3 ${idx % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
-                <div className="py-2 px-4 border-b border-gray-100">{row.days}</div>
-                <div className="py-2 px-4 border-b border-gray-100">Rp {formatNumber(Math.round(row.total))}</div>
-                <div className="py-2 px-4 border-b border-gray-100">Rp {formatNumber(Math.round(row.pricePerDay))}</div>
+                <CellItem>{row.days}</CellItem>
+                <CellItem>{`Rp ${formatNumber(Math.round(row.total))}`}</CellItem>
+                <CellItem>{`Rp ${formatNumber(Math.round(row.pricePerDay))}`}</CellItem>
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="flex justify-end mt-4">
+          <button className="px-4 py-2 text-white bg-[#5C6B89] cursor-pointer rounded-md hover:bg-[#4B5B77]" onClick={onClose}>
+            Tutup
+          </button>
         </div>
       </div>
     </div>

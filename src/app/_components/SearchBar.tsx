@@ -35,13 +35,13 @@ const SearchBar = () => {
         placeholder="Cari Disini..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="w-full border border-gray-300 rounded-full py-2.5 pl-5 pr-20 text-sm outline-none focus:border-[#B8860B] focus:ring-1 focus:ring-[#B8860B] transition-all bg-gray-50 focus:bg-white"
+        className="w-full border border-gray-300 rounded-full py-2.5 pl-5 pr-20 text-sm outline-none focus:border-[#B8860B] focus:ring-1 focus:ring-gray-100 transition-all bg-gray-50 focus:bg-white"
       />
       <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
         {isPending && (
           <AiOutlineLoading className="animate-spin h-4 w-4 text-[#B8860B]" />
         )}
-        <button className="text-gray-400 hover:text-[#B8860B] transition-colors">
+        <button className="text-gray-400">
           <GoSearch size={18} />
         </button>
       </div>
