@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { formatNumber } from "@/app/utils"
 import Link from "next/link"
-import PriceChartButton from "./PriceChartButton"
 import { FaInfoCircle } from "react-icons/fa"
+import PriceChartButton from "@/app/_components/PriceChartButton"
 
 interface ProductInfoProps {
   product: any

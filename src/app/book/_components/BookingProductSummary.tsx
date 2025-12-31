@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { formatNumber } from "@/app/utils"
-import PriceChartButton from "../../product/_components/PriceChartButton"
 import { FaInfoCircle } from "react-icons/fa"
+import PriceChartButton from "@/app/_components/PriceChartButton"
 
 interface BookingProductSummaryProps {
   product: any

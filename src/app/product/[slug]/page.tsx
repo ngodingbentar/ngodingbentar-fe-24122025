@@ -1,6 +1,6 @@
 import { getProductBySlug } from "@/app/services";
 import { notFound } from "next/navigation";
-import ProductDetailClient from "../_components/ProductDetailClient";
+import ProductDetailClient from "./_components/ProductDetailClient";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

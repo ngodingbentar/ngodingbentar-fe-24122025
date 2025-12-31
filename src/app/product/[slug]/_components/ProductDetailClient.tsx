@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import PriceChart from "./PriceChart"
 import ProductImageGallery from "./ProductImageGallery"
 import ProductPackages from "./ProductPackages"
 import ProductInfo from "./ProductInfo"
+import PriceChart from "@/app/_components/PriceChart"
 
 interface ProductDetailPageProps {
   product: any

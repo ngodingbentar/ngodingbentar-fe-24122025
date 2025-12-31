@@ -1,13 +1,13 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { formatNumber } from "@/app/utils"
-import { toast } from "react-toastify"
-import PriceChart from "../../product/_components/PriceChart"
+import { addDays, calculateDays, formatNumber } from "@/app/utils"
+import { toast } from "react-hot-toast"
 import DateTimeLocationPicker from "./DateTimeLocationPicker"
 import BookingProductSummary from "./BookingProductSummary"
 import BookingPackageList from "./BookingPackageList"
 import BookingOrderSummary from "./BookingOrderSummary"
+import PriceChart from "@/app/_components/PriceChart"
 
 interface BookingFormProps {
   product: any
@@ -20,20 +20,13 @@ const BookingForm = ({ product }: BookingFormProps) => {
   const [returnLoc, setReturnLoc] = useState("Jakarta")
   const [showPriceChart, setShowPriceChart] = useState(false)
 
-  const price = product.price
-
-  const calculateDays = (start: string, end: string) => {
-    if (!start || !end) return 0
-    const startDate = new Date(start)
-    const endDate = new Date(end)
-    const diffTime = endDate.getTime() - startDate.getTime()
-    if (diffTime < 0) return 0
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
-    return diffDays || 0
-  }
-
+  const price = useMemo(() => product.price, [product])
+  const packageItems = useMemo(() => product.default_package?.components || [], [product])
   const duration = useMemo(() => calculateDays(pickupDate, returnDate), [pickupDate, returnDate])
-
+  const isUnavailable = useMemo(() => {
+    const avail = product.availability?.find((item: any) => item.city === pickupLoc)
+    return avail?.status === "unavailable"
+  }, [product.availability, pickupLoc])
   const { total, subtotal, discountAmount, discountPercent, freeDays } = useMemo(() => {
     if (duration <= 0) return { total: 0, subtotal: 0, discountAmount: 0, discountPercent: 0, freeDays: 0 }
 
@@ -60,23 +53,8 @@ const BookingForm = ({ product }: BookingFormProps) => {
     }
   }, [duration, price])
 
-
-
   const handleBook = () => {
-    toast.success(`Pesan berhasil !\nProduct: ${product.name}\nTotal: Rp ${formatNumber(total)}`)
-  }
-
-  const packageItems = product.default_package?.components || []
-
-  const addDays = (dateStr: string, days: number) => {
-    const date = new Date(dateStr)
-    date.setDate(date.getDate() + days)
-    const year = date.getFullYear()
-    const month = String(date.getMonth() + 1).padStart(2, '0')
-    const day = String(date.getDate()).padStart(2, '0')
-    const hours = String(date.getHours()).padStart(2, '0')
-    const minutes = String(date.getMinutes()).padStart(2, '0')
-    return `${year}-${month}-${day}T${hours}:${minutes}`
+    toast.success(`Pesan berhasil !\nProduct: ${product.name}\nLokasi: ${pickupLoc}\nTotal: Rp ${formatNumber(total)}`)
   }
 
   const handleDurationChange = (newDuration: number) => {
@@ -84,11 +62,6 @@ const BookingForm = ({ product }: BookingFormProps) => {
     const newReturnDate = addDays(pickupDate, newDuration)
     setReturnDate(newReturnDate)
   }
-
-  const isUnavailable = useMemo(() => {
-    const avail = product.availability?.find((item: any) => item.city === pickupLoc)
-    return avail?.status === "unavailable"
-  }, [product.availability, pickupLoc])
 
   return (
     <div className="bg-white p-6 pt-2 font-sans text-gray-700">
