@@ -13,6 +13,10 @@ const SearchBar = () => {
   const [isPending, startTransition] = useTransition()
 
   useEffect(() => {
+    setSearch(initialSearch)
+  }, [initialSearch])
+
+  useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       if (search !== initialSearch) {
         startTransition(() => {

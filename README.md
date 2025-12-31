@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) & [Ant Design](https://ant.design/)
+- **State Management:** [Zustand](https://github.com/pmndrs/zustand)
+- **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
+- **Notifications:** [React Hot Toast](https://react-hot-toast.com/)
+- **Linting & Formatting:** [Biome](https://biomejs.dev/)
+
 ## Getting Started
 
 Node version 22.12.0

@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { FaMapMarkerAlt, FaCalendarAlt, FaClock } from "react-icons/fa";
 
 export const OrderList = () => {
-  // Client-side hydration safety
   const [mounted, setMounted] = useState(false);
   const { orders } = useOrderStore();
 
