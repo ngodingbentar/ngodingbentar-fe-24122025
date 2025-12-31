@@ -7,6 +7,8 @@ import { FaInfoCircle } from "react-icons/fa"
 import PriceChartButton from "@/app/_components/PriceChartButton"
 import { MdOutlineDashboard } from "react-icons/md"
 
+import { useProjectStore } from "@/store/useProjectStore"
+
 interface ProductInfoProps {
   product: any
   onOpenPriceChart: () => void
@@ -15,6 +17,17 @@ interface ProductInfoProps {
 const ProductInfo = ({ product, onOpenPriceChart }: ProductInfoProps) => {
   const [showAvailTooltip, setShowAvailTooltip] = useState(false)
   const [showPriceTooltip, setShowPriceTooltip] = useState(false)
+  const { addItem } = useProjectStore()
+
+  const handleAddToProject = () => {
+    addItem({
+      id: product.id,
+      slug: product.slug,
+      name: product.name,
+      image: product.images[0]?.image,
+      price: product.price
+    })
+  }
 
   return (
     <>
@@ -104,7 +117,10 @@ const ProductInfo = ({ product, onOpenPriceChart }: ProductInfoProps) => {
       </div>
 
       <div className="flex gap-3 mb-2">
-        <button className="flex w-1/2 justify-center items-center gap-2 bg-[#c99947] hover:bg-[#929c10] text-white font-bold py-3 px-4 rounded transition-colors text-sm">
+        <button
+          onClick={handleAddToProject}
+          className="flex w-1/2 justify-center items-center gap-2 bg-[#c99947] hover:bg-[#929c10] text-white font-bold py-3 px-4 rounded transition-colors text-sm"
+        >
           <span>Add to Project</span>
           <span><MdOutlineDashboard /></span>
         </button>

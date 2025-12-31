@@ -2,6 +2,7 @@ import { getProductBySlug } from "@/app/services";
 import { notFound } from "next/navigation";
 import BookingForm from "./_components/BookingForm";
 import Link from "next/link";
+import { FaArrowLeft } from "react-icons/fa";
 
 interface PageProps {
   searchParams: Promise<{ slug?: string }>;
@@ -27,6 +28,9 @@ const BookPage = async ({ searchParams }: PageProps) => {
 
   return (
     <div>
+      <Link href={`/product/${product.slug}`} className="inline-flex items-center gap-2 text-gray-600 hover:text-[#B8860B] mb-6 transition-colors font-medium">
+        <FaArrowLeft /> Back to Product
+      </Link>
       <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
         <BookingForm product={product} />
       </div>

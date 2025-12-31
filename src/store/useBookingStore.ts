@@ -15,8 +15,8 @@ interface BookingState {
 }
 
 export const useBookingStore = create<BookingState>((set, get) => ({
-  pickupDate: "2025-12-21T09:00",
-  returnDate: "2025-12-28T09:00",
+  pickupDate: "2025-12-30T09:00",
+  returnDate: "2025-12-31T09:00",
   pickupLoc: "Jakarta",
   returnLoc: "Jakarta",
 

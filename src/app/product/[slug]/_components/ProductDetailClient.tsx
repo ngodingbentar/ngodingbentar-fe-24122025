@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
+import { FaArrowLeft } from "react-icons/fa"
 import ProductImageGallery from "./ProductImageGallery"
 import ProductInfo from "./ProductInfo"
 import PriceChart from "@/app/_components/PriceChart"
@@ -17,6 +19,9 @@ const ProductDetailClient = ({ product }: ProductDetailPageProps) => {
 
   return (
     <div className="container mx-auto px-4 py-8 font-sans">
+      <Link href="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-[#B8860B] mb-6 transition-colors font-medium">
+        <FaArrowLeft /> Back to Home
+      </Link>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-7">
           <ProductImageGallery images={product.images} productName={product.name} />
