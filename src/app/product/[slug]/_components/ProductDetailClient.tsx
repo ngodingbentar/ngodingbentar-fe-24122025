@@ -18,7 +18,7 @@ const ProductDetailClient = ({ product }: ProductDetailPageProps) => {
   const packageItems = product.default_package?.components || []
 
   return (
-    <div className="container mx-auto px-4 py-8 font-sans">
+    <div className="container mx-auto p-4 font-sans">
       <Link href="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-[#B8860B] mb-6 transition-colors font-medium">
         <FaArrowLeft /> Back to Home
       </Link>

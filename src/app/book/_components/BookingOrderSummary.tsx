@@ -8,7 +8,7 @@ interface BookingOrderSummaryProps {
   discountPercent: number
   discountAmount: number
   total: number
-  onBook: () => void
+  handleBook: () => void
   isDisabled?: boolean
 }
 
@@ -20,7 +20,7 @@ const BookingOrderSummary = ({
   discountPercent,
   discountAmount,
   total,
-  onBook,
+  handleBook,
   isDisabled = false,
 }: BookingOrderSummaryProps) => {
   return (
@@ -55,11 +55,11 @@ const BookingOrderSummary = ({
       </div>
 
       <button
-        onClick={onBook}
+        onClick={handleBook}
         disabled={isDisabled}
         className={`w-full font-bold py-3 text-lg rounded shadow-md transition-colors ${isDisabled
           ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-          : "bg-[#B8860B] hover:bg-[#9DA520] text-white"
+          : "bg-[#B8860B] hover:bg-[#9DA520] text-white cursor-pointer"
           }`}
       >
         {isDisabled ? "Unavailable" : "Book Now"}

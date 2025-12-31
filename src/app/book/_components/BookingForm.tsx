@@ -3,6 +3,8 @@
 import { useState, useMemo } from "react"
 import { calculateDays, formatNumber } from "@/app/utils"
 import { useBookingStore } from "@/store/useBookingStore"
+import { useOrderStore } from "@/store/useOrderStore"
+import { useRouter } from "next/navigation"
 import { toast } from "react-hot-toast"
 import DateTimeLocationPicker from "./DateTimeLocationPicker"
 import BookingProductSummary from "./BookingProductSummary"
@@ -19,6 +21,7 @@ const BookingForm = ({ product }: BookingFormProps) => {
     pickupDate,
     returnDate,
     pickupLoc,
+    returnLoc,
     setDuration
   } = useBookingStore()
 
@@ -58,8 +61,39 @@ const BookingForm = ({ product }: BookingFormProps) => {
     }
   }, [duration, price])
 
+  const router = useRouter()
+  const { addOrder } = useOrderStore()
+
   const handleBook = () => {
-    toast.success(`Pesan berhasil !\nProduct: ${product.name}\nLokasi: ${pickupLoc}\nTotal: Rp ${formatNumber(total)}`)
+    console.log("Booking...", product)
+    const order = {
+      id: crypto.randomUUID(),
+      product: {
+        slug: product.slug,
+        name: product.name,
+        image: product.images[0].image,
+        price: product.price,
+      },
+      bookingDetails: {
+        pickupDate,
+        returnDate,
+        pickupLoc,
+        returnLoc,
+        duration,
+      },
+      paymentDetails: {
+        total,
+        subtotal,
+        discountAmount,
+        discountPercent,
+        freeDays,
+      },
+      createdAt: new Date().toISOString(),
+    }
+
+    addOrder(order)
+    toast.success("Pesanan berhasil dibuat!")
+    router.push("/order-list")
   }
 
   const handleDurationChange = (newDuration: number) => {
@@ -91,7 +125,7 @@ const BookingForm = ({ product }: BookingFormProps) => {
           discountPercent={discountPercent}
           discountAmount={discountAmount}
           total={total}
-          onBook={handleBook}
+          handleBook={handleBook}
           isDisabled={isUnavailable}
         />
       </div>

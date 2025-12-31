@@ -27,7 +27,7 @@ const BookPage = async ({ searchParams }: PageProps) => {
   }
 
   return (
-    <div>
+    <div className="p-4">
       <Link href={`/product/${product.slug}`} className="inline-flex items-center gap-2 text-gray-600 hover:text-[#B8860B] mb-6 transition-colors font-medium">
         <FaArrowLeft /> Back to Product
       </Link>
